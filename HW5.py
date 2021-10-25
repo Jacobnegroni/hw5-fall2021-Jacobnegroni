@@ -108,14 +108,29 @@ class TestAllMethods(unittest.TestCase):
 
 
     def test_find_chapter_info(self):
-        pass
-        
+        str_list_1 = ["Chapter 1: This is my first chapter"]
+        str_list_2 = ["Chap 29387: My dummy chapter"]
+        str_list_3 = ["Where is my chapter: 46"]
+        self.assertEqual(find_chapter_info(str_list_1), {1:"This is my first chapter"})
+        self.assertEqual(find_chapter_info(str_list_2), {})
+        self.assertEqual(find_chapter_info(str_list_3), {})
+
     def test_find_capitalized_words(self):
-        pass
+        str_list_1 = ["none of this are capitalized"]
+        str_list_2 = ["tHis hAs wRong cApitalization"]
+        str_list_3 = ["well, it was nice to meet Lord Harry The Third and also Little Harry Jr"]
+        self.assertEqual(find_capitalized_words(str_list_1),[])
+        self.assertEqual(find_capitalized_words(str_list_2),[])
+        self.assertEqual(find_capitalized_words(str_list_3),["Lord Harry The Third","Little Harry Jr"])
 
 
     def test_find_urls(self):
-        pass
+        str_list_1 = ["vimeo.com is a good alternative to youtube.com"]
+        str_list_2 = ["I find good movies on https://agoodmovietowatch.com/","Also https://www.agoodmovietowatch.com/ works"]
+        str_list_3 = [".com and .org websites are aplenty","https://hackertyper.net/ is funny"]
+        self.assertEqual(find_urls(str_list_1),[])
+        self.assertEqual(find_urls(str_list_2),["https://www.agoodmovietowatch.com/"])
+        self.assertEqual(find_urls(str_list_3),[])
 
     def test_find_dates(self):
         pass
