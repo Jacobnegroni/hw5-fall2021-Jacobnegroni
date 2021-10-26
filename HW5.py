@@ -103,7 +103,7 @@ def count_mid_str(string_list, string):
     pass
 
 
-# Implement your own tests.
+# Implement your own tests
 class TestAllMethods(unittest.TestCase):
 
 
@@ -133,9 +133,12 @@ class TestAllMethods(unittest.TestCase):
         self.assertEqual(find_urls(str_list_3),[])
 
     def test_find_dates(self):
-
-
-
+        str_list_1 = ["10/31-1950 is a weird date to look at"]
+        str_list_2 = ["I am time travelling from 12/31/2021 to 01/01/1990\n"]
+        str_list_3 = ["12-31-21 is not a valid date though"]
+        self.assertEqual(find_dates(str_list_1),[])
+        self.assertEqual(find_dates(str_list_2),["12/31/2021","01/01/1990"])
+        self.assertEqual(find_dates(str_list_3),["12-31-21"])
 
 
     def test_count_mid_str(self):
